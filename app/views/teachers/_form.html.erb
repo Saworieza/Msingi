@@ -1,0 +1,61 @@
+<%= form_for(@teacher) do |f| %>
+  <% if @teacher.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@teacher.errors.count, "error") %> prohibited this teacher from being saved:</h2>
+
+      <ul>
+      <% @teacher.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :first_name %><br>
+    <%= f.text_field :first_name %>
+  </div>
+  <div class="field">
+    <%= f.label :last_name %><br>
+    <%= f.text_field :last_name %>
+  </div>
+  <div class="field">
+    <%= f.label :surname %><br>
+    <%= f.text_field :surname %>
+  </div>
+  <div class="field">
+    <%= f.label :gender %><br>
+    <%= f.text_field :gender %>
+  </div>
+  <div class="field">
+    <%= f.label :dob %><br>
+    <%= f.date_select :dob %>
+  </div>
+  <div class="field">
+    <%= f.label :status %><br>
+    <%= f.text_field :status %>
+  </div>
+  <div class="field">
+    <%= f.label :employer %><br>
+    <%= f.text_field :employer %>
+  </div>
+  <div class="field">
+    <%= f.label :employment_date %><br>
+    <%= f.date_select :employment_date %>
+  </div>
+  <div class="field">
+    <%= f.label :nationality %><br>
+    <%= f.text_field :nationality %>
+  </div>
+  <div class="field">
+    <%= f.label :employer_id %><br>
+    <%= f.text_field :employer_id %>
+  </div>
+  <div class="field">
+    <%= f.label :education %><br>
+    <%= f.text_field :education %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

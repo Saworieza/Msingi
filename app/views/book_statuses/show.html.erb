@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @book_status.status %>
+</p>
+
+<p>
+  <strong>Comment:</strong>
+  <%= @book_status.comment %>
+</p>
+
+<%= link_to 'Edit', edit_book_status_path(@book_status) %> |
+<%= link_to 'Back', book_statuses_path %>

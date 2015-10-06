@@ -1,4 +1,33 @@
 Rails.application.routes.draw do
+  get 'users/index'
+
+  resources :students
+  resources :teachers
+  resources :tasks
+  resources :priorities
+  resources :events
+  resources :book_statuses
+  resources :publishers
+  resources :authors
+  resources :books
+  resources :disciplines
+  resources :payment_types
+  resources :payments
+  resources :exams
+  resources :cats
+  resources :assignments
+  resources :departments
+  resources :streams
+  resources :contacts
+  resources :subjects
+  resources :terms
+  resources :houses
+  resources :years
+  resources :classrooms
+  resources :schools
+  devise_for :users
+  root 'home#index'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

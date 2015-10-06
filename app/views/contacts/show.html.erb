@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Guardian:</strong>
+  <%= @contact.guardian %>
+</p>
+
+<p>
+  <strong>Father:</strong>
+  <%= @contact.father %>
+</p>
+
+<p>
+  <strong>Mother:</strong>
+  <%= @contact.mother %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @contact.email %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @contact.address %>
+</p>
+
+<p>
+  <strong>Phone:</strong>
+  <%= @contact.phone %>
+</p>
+
+<p>
+  <strong>Private number:</strong>
+  <%= @contact.private_number %>
+</p>
+
+<p>
+  <strong>County:</strong>
+  <%= @contact.county %>
+</p>
+
+<p>
+  <strong>Country:</strong>
+  <%= @contact.country %>
+</p>
+
+<%= link_to 'Edit', edit_contact_path(@contact) %> |
+<%= link_to 'Back', contacts_path %>

@@ -1,14 +1,164 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Workspace</title>
+  <title><%= yield(:title) %></title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<%= yield %>
-
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12">
+      
+      <!-- NAVIGATION -->
+      <!DOCTYPE html>
+<html>
+<head>
+        <body>
+        <div class="container">
+        	<nav class="navbar navbar-default">
+        	  <div class="container-fluid">
+        	    <!-- Brand and toggle get grouped for better mobile display -->
+        	    <div class="navbar-header">
+        	      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        	        <span class="sr-only">Toggle navigation</span>
+        	        <span class="icon-bar"></span>
+        	        <span class="icon-bar"></span>
+        	        <span class="icon-bar"></span>
+        	      </button>
+        	      <%= link_to 'School Sys', root_path, class: "navbar-brand" %>
+        	    </div>
+        		
+        		<% if user_signed_in? %>
+        	    <!-- Collect the nav links, forms, and other content for toggling -->
+        	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        	      <ul class="nav navbar-nav">
+        	      	<li class="dropdown">
+        	          <a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Admissions <span class="caret"></span></a>
+        	          <ul class="dropdown-menu">
+        	            <li><%= link_to 'Admit Student', new_student_path %></li><!-- Admin and Allowed Teachers -->
+        	            <!-- link to admit students. its just the new student form anyway -->
+        				<li role="separator" class="divider"></li>
+        				<li><%= link_to 'Add teacher', new_teacher_path %></li><!--Admin only-->
+        				<li role="separator" class="divider"></li>
+        				<li><%= link_to 'Contact person', new_contact_path %></li><!--romeve once defaults are set and its integrated into both teachers and students-->        					
+        	          </ul>
+        	        </li>
+        	        <li class="dropdown">
+        	          <a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Academics <span class="caret"></span></a>
+        	          <ul class="dropdown-menu">
+        	            <li><a href="#"><%= link_to 'Exams', exams_path %></a></li>
+        	            <li role="separator" class="divider"></li>
+        	            <li><a href="#"><%= link_to 'Assignments', assignments_path %></a></li>
+        	            <li role="separator" class="divider"></li>
+        	            <li><a href="#"><%= link_to 'CAT', cats_path %></a></li>
+        	            <li role="separator" class="divider"></li>
+        	            <li><a href="#"><%= link_to 'Department', departments_path %></a></li>
+        	            <li role-"separator" class="divider"></li>
+        	            <li><%= link_to 'Subjects', subjects_path %></li>
+        	            <li role-"separator" class="divider"></li>
+        	            <li><%= link_to 'Terms', terms_path %></li>
+        	          </ul>
+        	        </li>
+        	        <li class="dropdown">
+        	          <a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Accounts <span class="caret"></span></a>
+        	          <ul class="dropdown-menu">
+        	            <li><a href="#"><%= link_to 'Payments', payments_path %></a></li>
+        	            <li role="separator" class="divider"></li>
+        	            <li><a href="#"><%= link_to 'Pay Types', payment_types_path %></a></li><!-- remove as soon as integrated onto payments-->
+        	          </ul>
+        	        </li>
+        	        <li class="dropdown">
+        	          <a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Student Life <span class="caret"></span></a>
+        	          <ul class="dropdown-menu">
+        	            <li><a href="#"><%= link_to 'House', houses_path %></a></li>
+        	            <li role="separator" class="divider"></li>
+        	            <li><%= link_to 'Classes', classrooms_path %></li>
+        	            <li role="separator" class="divider"></li>
+        	            <li><a href="#"><%= link_to 'Discipline', disciplines_path %></li>
+        	            <li role="separator" class="divider"></li>
+        	            <li><a href="#"><%= link_to 'Stream', new_stream_path %></li><!-- remove once its integrated to class-->
+        	          </ul>
+        	        </li>
+        	        
+        	        <li class="dropdown">
+        	          <a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Activities <span class="caret"></span></a>
+        	          <ul class="dropdown-menu">
+        	          	<li><a href="#">Manage Activities</a></li><!-- a place to create and view all current tasks. emporary of course-->
+        	          	<li role="separator" class="divider"></li>
+        	            <li><%= link_to 'Events', events_path %></li>
+        	            <li role="separator" class="divider"></li>
+        	            <li><a href="#"><%= link_to 'Tasks', tasks_path %></a></li>
+        	            <li role="separator" class="divider"></li>
+        	            <li><%= link_to "Task Priority", priorities_path %></li>
+        	          </ul>
+        	        </li>
+        	        <li class="dropdown">
+        	          <a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Library <span class="caret"></span></a>
+        	          <ul class="dropdown-menu">
+        	            <li><%= link_to 'Books', books_path %></li>
+        	            <li role="separator" class="divider"></li>
+        	            <li><%= link_to "Add Books", new_book_path %></li>
+        	            <li role="separator" class="divider"></li>
+        	            <li><%= link_to "Lend Book" %></li>
+        	            <li role="separator" class="divider"></li>
+        	            <li><%= link_to "Add Author", authors_path %></li>
+        	            <li role="separator" class="divider"></li>
+        	            <li><%= link_to "Add Publisher", publishers_path %></li>
+        	            <li role="separator" class="divider"></li>
+        	            <li><%= link_to "Status", book_statuses_path %></li>
+        	          </ul>
+        	        </li>
+        	        <li class="dropdown">
+        	          <a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">People<span class="caret"></span></a>
+        	          <ul class="dropdown-menu">
+        	            <li><%= link_to 'Registered Users', users_index_path %></li><!-- just to help keep track. if you keep it let only superadmin see it-->
+        	            <li role="separator" class="divider"></li>
+        	            <li><%= link_to 'Registered Students', students_path %><!-- parents?--></li>
+        	            <li role="separator" class="divider"></li>
+        	            <li><%= link_to 'Teachers', teachers_path %><!-- teachers?--></li>
+        	          </ul>
+        	        </li>
+        	        <!--<li class="active">something</a></li>-->
+        	        
+        	      </ul>
+        	      <ul class="nav navbar-nav navbar-right">
+        	        <li><%= link_to current_user.email, edit_user_registration_path%></li>
+        	        <li class="dropdown">
+        	          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">My Account <span class="caret"></span></a>
+        	          <ul class="dropdown-menu">
+        	          	<li><%= link_to "Edit Profile", edit_user_registration_path%></li>
+        	        	<li class="dropdown"></li>
+        	            <li role="separator" class="divider"></li>
+        	            <li><%= link_to 'Sign Out', destroy_user_session_path, :method=>'delete' %></li>
+        	          </ul>
+        	        </li>
+        	      <% else %>
+        		  </ul>
+        		  <%= link_to 'Sign In', new_user_session_path %>
+        		  <%= link_to 'Sign Up',  new_user_registration_path %>
+        	    </div><!-- /.navbar-collapse -->
+        	  
+        	<% end %>
+      <!-- /NAVIGATION -->
+      
+      
+      
+      <% if user_signed_in? %>
+        <%= link_to "Edit Profile", edit_user_registration_path%>
+	      <%= link_to 'Sign Out', destroy_user_session_path, :method=>'delete' %>
+	    <% else %>
+	      <%= link_to 'Sign In', new_user_session_path %>
+		    <%= link_to 'Sign Up',  new_user_registration_path %>
+	    <% end %>
+    </div>
+    <div class="col-lg-12">
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+    </div>
+  </div>
+  <%= yield %>
+</div>
 </body>
 </html>
