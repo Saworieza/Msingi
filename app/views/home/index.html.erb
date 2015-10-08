@@ -1,2 +1,38 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<div class="container">
+    <div class="row">
+       <div class="col-lg-8">
+            <h2>Home Page</h2>
+        </div>
+        <div class="col-lg-4">
+            <h3>Latest Events</h3>
+              <form class="navbar-form navbar-left" role="search">
+    	        <div class="form-group">
+    	          <input type="text" class="form-control" placeholder="Search for event">
+    	        </div>
+    	        <button type="submit" class="btn btn-default">Search</button>
+    	      </form>
+            <table>
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Description</th>
+                  <th>Start date</th>
+                  <th>End date</th>
+                </tr>
+              </thead>
+            
+              <tbody>
+                <% @events.each do |event| %>
+                  <tr>
+                    <td><%= link_to (event.name), event %></td>
+                    <td><%= event.description %></td>
+                    <td><%= event.start_date.strftime('%d,%b-%Y') %></td>
+                    <td><%= event.end_date.strftime('%d,%b-%Y') %></td>
+                  </tr>
+                <% end %>
+              </tbody>
+            </table>
+        </div>
+       
+    </div>
+</div>

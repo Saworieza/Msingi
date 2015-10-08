@@ -42,7 +42,7 @@
         				<li role="separator" class="divider"></li>
         				<li><%= link_to 'Add teacher', new_teacher_path %></li><!--Admin only-->
         				<li role="separator" class="divider"></li>
-        				<li><%= link_to 'Contact person', new_contact_path %></li><!--romeve once defaults are set and its integrated into both teachers and students-->        					
+        				<li><%= link_to 'All Contacts', contacts_path %></li><!--romeve once defaults are set and its integrated into both teachers and students-->        					
         	          </ul>
         	        </li>
         	        <li class="dropdown">
@@ -65,6 +65,8 @@
         	          <a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Accounts <span class="caret"></span></a>
         	          <ul class="dropdown-menu">
         	            <li><a href="#"><%= link_to 'Payments', payments_path %></a></li>
+        	            <li role="separator" class="divider"></li>
+        	            <li><a href="#"><%= link_to 'Make Payment', new_payment_path %></a></li>
         	            <li role="separator" class="divider"></li>
         	            <li><a href="#"><%= link_to 'Pay Types', payment_types_path %></a></li><!-- remove as soon as integrated onto payments-->
         	          </ul>
@@ -124,7 +126,7 @@
         	        
         	      </ul>
         	      <ul class="nav navbar-nav navbar-right">
-        	        <li><%= link_to current_user.email, edit_user_registration_path, class: "dropdown-toggle", "data-toggle" => "dropdown"%></li>
+        	       <!-- <li><%= link_to current_user.email, edit_user_registration_path, class: "dropdown-toggle", "data-toggle" => "dropdown"%></li>-->
         	        <li class="dropdown">
         	          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">My Account <span class="caret"></span></a>
         	          <ul class="dropdown-menu">
@@ -142,7 +144,7 @@
         	  
         	<% end %>
       <!-- /NAVIGATION -->
-      
+      </div>
       </div>
     <div class="col-lg-12">
       <p class="notice"><%= notice %></p>
