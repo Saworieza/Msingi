@@ -1,41 +1,113 @@
-<%= form_for(@student) do |f| %>
-  <% if @student.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@student.errors.count, "error") %> prohibited this student from being saved:</h2>
-
-      <ul>
-      <% @student.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+<div class="column">  
+  <div class="row">
+    <div class="col-lg-6">
+      <h3> Personal information</h3>
+      <%= form_for(@student) do |f| %>
+        <% if @student.errors.any? %>
+          <div id="error_explanation">
+            <h3><%= pluralize(@student.errors.count, "error") %> prohibited this student from being saved:</h3>
+      
+            <ul>
+            <% @student.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+            </ul>
+          </div>
+        <% end %>
+        
+        <div class="field">
+          <%= f.label :surname %><br>
+          <%= f.text_field :surname %>
+        </div>
+        
+        <div class="field">
+          <%= f.label :first_name %><br>
+          <%= f.text_field :first_name %>
+        </div>
+        <div class="field">
+          <%= f.label :last_name %><br>
+          <%= f.text_field :last_name %>
+        </div>
+        
+        <div class="field">
+          <%= f.label :adm_no %><br>
+          <%= f.number_field :adm_no %>
+        </div>
+        
+        <div class="field">
+          <%= f.label :gender %><br>
+          <%= f.text_field :gender %>
+        </div>
+        <div class="field">
+          <%= f.label :dob %><br>
+          <%= f.date_select :dob %>
+        </div>
+    </div><!-- /end first column-->
+    
+    <div class="col-lg-6">
+      <h3>Contact Details</h3>
+      
+      
+       <%= f.fields_for :contacts do |contact| %>
+         <div class="field">
+           <%= contact.label :father %><br>
+           <%= contact.text_field :father %>
+         </div>
+         
+         <div class="field">
+           <%= contact.label :mother %><br>
+           <%= contact.text_field :mother %>
+         </div>
+         
+         <div class="field">
+           <%= contact.label :guardian %><br>
+           <%= contact.text_field :guardian %>
+         </div>
+         
+         <div class="field">
+           <%= contact.label :email %><br>
+           <%= contact.text_field :email %>
+         </div>
+         
+         <div class="field">
+           <%= contact.label :address %><br>
+           <%= contact.text_field :address %>
+         </div>
+         
+         <div class="field">
+           <%= contact.label :phone %><br>
+           <%= contact.number_field :phone %>
+         </div>
+         
+         <div class="field">
+           <%= contact.label :private_number %><br>
+           <%= contact.text_field :private_number %>
+         </div>
+         
+         <div class="field">
+           <%= contact.label :county %><br>
+            <%#= f.select :county, ["One","Two","etc"] %>
+           <%= contact.text_field :county %>
+         </div>
+         
+         <div class="field">
+           <%= contact.label :country %><br>
+           <%= contact.number_field :country %>
+         </div>
+         <% end %>
+       </div>
+       
+    </div><!-- /end second column-->
+    
+    <div class="col-lg-12">
+      <div class="field">
+          <%= f.label :nationality %><br>
+          <%= f.text_field :nationality %>
+        </div>
+        <div class="actions">
+          <%= f.submit %>
+        </div>
       <% end %>
-      </ul>
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :first_name %><br>
-    <%= f.text_field :first_name %>
   </div>
-  <div class="field">
-    <%= f.label :last_name %><br>
-    <%= f.text_field :last_name %>
-  </div>
-  <div class="field">
-    <%= f.label :surname %><br>
-    <%= f.text_field :surname %>
-  </div>
-  <div class="field">
-    <%= f.label :gender %><br>
-    <%= f.text_field :gender %>
-  </div>
-  <div class="field">
-    <%= f.label :dob %><br>
-    <%= f.date_select :dob %>
-  </div>
-  <div class="field">
-    <%= f.label :nationality %><br>
-    <%= f.text_field :nationality %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+</div>

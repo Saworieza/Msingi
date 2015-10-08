@@ -5,7 +5,9 @@
 <table>
   <thead>
     <tr>
-      <th>Name</th>
+      <th>Incident</th>
+      <th>Student</th>
+      <th>Adm No</th>
       <th>Reported date</th>
       <th>Details</th>
       <th colspan="3"></th>
@@ -16,6 +18,8 @@
     <% @disciplines.each do |discipline| %>
       <tr>
         <td><%= discipline.name %></td>
+        <td><%= discipline.student.surname %><%= discipline.student.last_name %></td>
+        <td><%= discipline.student.adm_no %></td>
         <td><%= discipline.reported_date %></td>
         <td><%= discipline.details %></td>
         <td><%= link_to 'Show', discipline %></td>

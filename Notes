@@ -1,0 +1,51 @@
+<div class="field">
+        <%= f.label :father %><br>
+        <%#= f.text_field :student %>
+        <%= f.select :contact_id, Contact.all.map {|c| [c.father, c.id]} %>
+      </div>
+      
+      <div class="field">
+        <% f.label :mother%>
+        <%= f.select :contact_id, Contact.all.map {|c| [c.mother, c.id]} %>
+      </div>
+      
+      <div class="field">
+        <% f.label :Guardian%>
+        <%= f.select :contact_id, Contact.all.map {|c| [c.guardian, c.id]} %>
+      </div>
+      
+      <div class="field">
+        <% f.label :email%>
+        <%= f.select :contact_id, Contact.all.map {|c| [c.email, c.id]} %><!-- email field -->
+      </div>
+      
+      <div class="field">
+        <% f.label :address%>
+        <%= f.select :contact_id, Contact.all.map {|c| [c.address, c.id]} %>
+      </div>
+      
+      <div class="field">
+        <% f.label :phone%>
+        <%= f.select :contact_id, Contact.all.map {|c| [c.phone, c.id]} %>
+      </div>
+      
+      <div class="field">
+        <% f.label :private_number%>
+        <%= f.select :contact_id, Contact.all.map {|c| [c.private_number, c.id]} %>
+      </div>
+      
+      <div class="field">
+        <% f.label :country%>
+        <%= f.select :contact_id, Contact.all.map {|c| [c.country, c.id]} %>
+      </div>
+      
+      <div class="field">
+        <% f.label :county%>
+        <%= f.select :contact_id, Contact.all.map {|c| [c.county, c.id]} %>
+      </div>
+      
+      <div class="field">
+        <% f.label :mother%>
+        <%= f.select :contact_id, Contact.all.map {|c| [c.mother, c.id]} %>
+      </div>
+      

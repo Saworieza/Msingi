@@ -12,9 +12,27 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name %><br>
+    <%= f.label :Incident %><br>
     <%= f.text_field :name %>
   </div>
+  
+  <div class="field">
+    <%= f.label :student %><br>
+    <%#= f.text_field :student %>
+    <%= f.select :student_id, Student.all.map {|s| [s.surname, s.id]} %>
+    <%= f.select :student_id, Student.all.map {|s| [s.last_name, s.id]} %>
+  </div>
+  <div class="field">
+    <%= f.label :adm_no %><br>
+    <%= f.select :student_id, Student.all.map {|s| [s.adm_no, s.id]} %>
+  </div>
+  <div class="field">
+    <%= f.label :form %><br>
+    <!-- not yet -->
+    <%#= f.select :student_id, Student.all.map {|s| [s.classroom_id, s.id]} %>
+    <%#= f.select :student_id, Student.all.map {|s| [s.stream_id, s.id]} %>
+  </div>
+  
   <div class="field">
     <%= f.label :reported_date %><br>
     <%= f.date_select :reported_date %>

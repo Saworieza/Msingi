@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151006102357) do
+ActiveRecord::Schema.define(version: 20151008085703) do
 
   create_table "assignments", force: :cascade do |t|
     t.string   "name"
@@ -65,7 +65,12 @@ ActiveRecord::Schema.define(version: 20151006102357) do
     t.string   "country"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
+    t.integer  "student_id"
+    t.integer  "teacher_id"
   end
+
+  add_index "contacts", ["student_id"], name: "index_contacts_on_student_id"
+  add_index "contacts", ["teacher_id"], name: "index_contacts_on_teacher_id"
 
   create_table "departments", force: :cascade do |t|
     t.string   "name"
@@ -77,9 +82,12 @@ ActiveRecord::Schema.define(version: 20151006102357) do
     t.string   "name"
     t.date     "reported_date"
     t.string   "details"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+    t.integer  "student_id",    default: 1
   end
+
+  add_index "disciplines", ["student_id"], name: "index_disciplines_on_student_id"
 
   create_table "events", force: :cascade do |t|
     t.string   "name"
@@ -158,6 +166,7 @@ ActiveRecord::Schema.define(version: 20151006102357) do
     t.string   "nationality"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.integer  "adm_no"
   end
 
   create_table "subjects", force: :cascade do |t|

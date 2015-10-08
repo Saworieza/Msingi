@@ -1,8 +1,18 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Name:</strong>
+  <strong>Incident:</strong>
   <%= @discipline.name %>
+</p>
+
+<p>
+  <strong>Student Name:</strong>
+  <%= @discipline.student.surname %><%= @discipline.student.last_name %>
+</p>
+
+<p>
+  <strong>Incident:</strong>
+  <%= @discipline.student.adm_no %>
 </p>
 
 <p>
