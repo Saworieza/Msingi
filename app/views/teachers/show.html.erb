@@ -1,59 +1,104 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>First name:</strong>
-  <%= @teacher.first_name %>
-</p>
-
-<p>
-  <strong>Last name:</strong>
-  <%= @teacher.last_name %>
-</p>
-
-<p>
-  <strong>Surname:</strong>
-  <%= @teacher.surname %>
-</p>
-
-<p>
-  <strong>Gender:</strong>
-  <%= @teacher.gender %>
-</p>
-
-<p>
-  <strong>Dob:</strong>
-  <%= @teacher.dob %>
-</p>
-
-<p>
-  <strong>Status:</strong>
-  <%= @teacher.status %>
-</p>
-
-<p>
-  <strong>Employer:</strong>
-  <%= @teacher.employer %>
-</p>
-
-<p>
-  <strong>Employment date:</strong>
-  <%= @teacher.employment_date %>
-</p>
-
-<p>
-  <strong>Nationality:</strong>
-  <%= @teacher.nationality %>
-</p>
-
-<p>
-  <strong>Employer:</strong>
-  <%= @teacher.employer_id %>
-</p>
-
-<p>
-  <strong>Education:</strong>
-  <%= @teacher.education %>
-</p>
-
-<%= link_to 'Edit', edit_teacher_path(@teacher) %> |
-<%= link_to 'Back', teachers_path %>
+<div class="row">  
+    <p id="notice"><%= notice %></p>
+  <div class="col-lg-6">  
+    <p>
+      <strong>First name:</strong>
+      <%= @teacher.first_name %>
+    </p>
+    
+    <p>
+      <strong>Last name:</strong>
+      <%= @teacher.last_name %>
+    </p>
+    
+    <p>
+      <strong>Surname:</strong>
+      <%= @teacher.surname %>
+    </p>
+    
+    <p>
+      <strong>Gender:</strong>
+      <%= @teacher.gender %>
+    </p>
+    
+    <p>
+      <strong>Dob:</strong>
+      <%= @teacher.dob %>
+    </p>
+    
+    <p>
+      <strong>Status:</strong>
+      <%= @teacher.status %>
+    </p>
+    
+    <p>
+      <strong>Employer:</strong>
+      <%= @teacher.employer %>
+    </p>
+    
+    <p>
+      <strong>Employment date:</strong>
+      <%= @teacher.employment_date %>
+    </p>
+    
+    <p>
+      <strong>Nationality:</strong>
+      <%= @teacher.nationality %>
+    </p>
+    
+    <p>
+      <strong>Employer:</strong>
+      <%= @teacher.employer_id %>
+    </p>
+    
+    <p>
+      <strong>Education:</strong>
+      <%= @teacher.education %>
+    </p>
+  </div><!-- /column 1 -->
+  
+  <div class="col-lg-6">
+     <% for contact in @teacher.contacts %>
+      <p>
+        <strong>Father:</strong>
+        <%= contact.father %>
+      </p>
+      <p>
+        <strong>Mother:</strong>
+        <%= contact.mother %>
+      </p>
+      <p>
+        <strong>Guardian:</strong>
+        <%= contact.guardian %>
+      </p>
+      <p>
+        <strong>Email:</strong>
+        <%= contact.email %>
+      </p>
+      <p>
+        <strong>Address:</strong>
+        <%= contact.address %>
+      </p>
+      <p>
+        <strong>Phone:</strong>
+        <%= contact.phone %>
+      </p>
+      <p>
+        <strong>Private Phone:</strong>
+        <%= contact.private_number %>
+      </p>
+      <p>
+        <strong>County:</strong>
+        <%= contact.county %>
+      </p>
+      <p>
+        <strong>Country:</strong>
+        <%= contact.country %>
+      </p>
+    <% end %>
+  </div><!-- /column 2 -->
+  
+  <div class="col-lg-12">
+    <%= link_to 'Edit', edit_teacher_path(@teacher) %> |
+    <%= link_to 'Back', teachers_path %>
+  </div>
