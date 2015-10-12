@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'exam_management/index'
+
+  get 'exam_management/show'
+
   get 'users/index'
 
   resources :students

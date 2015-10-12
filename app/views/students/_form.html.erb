@@ -36,12 +36,24 @@
         
         <div class="field">
           <%= f.label :gender %><br>
-          <%= f.text_field :gender %>
+          <%= f.select :gender, ["Male","Female","Other"] %>
         </div>
         <div class="field">
           <%= f.label :dob %><br>
-          <%= f.date_select :dob %>
+          <%= f.date_select :dob, :start_year=>1955,:end_year=>2050 %>
         </div>
+        
+        <!-- student class details -->
+        <div class="field">
+          <%= f.label :Class %><br>
+          <%= f.select :classroom_id, Classroom.all.map {|c| [c.number, c.id]} %>
+        </div>
+        
+        <div class="field">
+          <%= f.label :Stream %><br>
+          <%= f.select :stream_id, Stream.all.map {|st| [st.name, st.id]} %>
+        </div>
+        
     </div><!-- /column 1-->
     
     <div class="col-lg-6">
@@ -91,7 +103,7 @@
          
          <div class="field">
            <%= contact.label :country %><br>
-           <%= contact.number_field :country %>
+           <%= contact.text_field :country %>
          </div>
          <% end %>
        </div>

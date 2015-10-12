@@ -123,8 +123,22 @@
         	          </ul>
         	        </li>
         	        <!--<li class="active">something</a></li>-->
-        	        
-        	      </ul>
+        	     
+        	      
+        	      <!-- things I am experimenting on how to implement and the best possible ways that dont add up the code weight -->
+          	     <li class="dropdown">
+          	          <a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">SkunkWax<span class="caret"></span></a>
+          	          <ul class="dropdown-menu">
+          	            <li><%= link_to 'Exam management', exam_management_index_path %></li><!-- just to help keep track. if you keep it let only superadmin see it-->
+          	            <li role="separator" class="divider"></li>
+          	            <li><%= link_to 'Attendance' %><!-- parents?--></li>
+          	            <li role="separator" class="divider"></li>
+          	            <li><%= link_to 'Class Management', teachers_path %><!-- teachers?--></li>
+          	          </ul>
+          	        </li>
+        	       <!-- /you remember the experiment(s) I mentioned a few lines back? --> 
+        	     </ul>
+        	     
         	      <ul class="nav navbar-nav navbar-right">
         	       <!-- <li><%= link_to current_user.email, edit_user_registration_path, class: "dropdown-toggle", "data-toggle" => "dropdown"%></li>-->
         	        <li class="dropdown">
@@ -146,12 +160,13 @@
       <!-- /NAVIGATION -->
       </div>
       </div>
+      </div>
     <div class="col-lg-12">
       <p class="notice"><%= notice %></p>
       <p class="alert"><%= alert %></p>
     </div>
-  </div>
-  <%= yield %>
+    <%= yield %>
+  
 </div>
 </body>
 </html>
