@@ -1,6 +1,11 @@
 <div class="row">  
     <p id="notice"><%= notice %></p>
-  <div class="col-lg-6">  
+  <div class="col-lg-6">
+    <p>
+      <strong>Image:</strong>
+      <%= image_tag @teacher.image.url(:medium) %>
+    </p>  
+    
     <p>
       <strong>First name:</strong>
       <%= @teacher.first_name %>

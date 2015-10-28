@@ -1,6 +1,6 @@
 <div class="row">    
   <div class="col-lg-6">  
-    <%= form_for(@teacher) do |f| %>
+    <%= form_for @teacher, url: teachers_path, html: { multipart: true } do |f| %>
        <h3>Personal Information</h3>
       <% if @teacher.errors.any? %>
         <div id="error_explanation">
@@ -13,7 +13,11 @@
           </ul>
         </div>
       <% end %>
-    
+      
+      <div class="field">
+        <%= f.file_field :image %>
+      </div>
+      
       <div class="field">
         <%= f.label :first_name %><br>
         <%= f.text_field :first_name %>
@@ -28,15 +32,15 @@
       </div>
       <div class="field">
         <%= f.label :gender %><br>
-        <%= f.text_field :gender %>
+        <%= f.select :gender, ["Male","Female","Other"] %>
       </div>
       <div class="field">
         <%= f.label :dob %><br>
-        <%= f.date_select :dob %>
+        <%= f.date_select :dob, :start_year=>1955,:end_year=>2050 %>
       </div>
       <div class="field">
         <%= f.label :status %><br>
-        <%= f.text_field :status %>
+        <%= f.select :status, ["Single","In a Relationship","Married","Engaged","It's Complicated","In an Open Relationship","Widowed","Separated","Divorced","In a Domestic Partnership","In a Civil Union"] %>
       </div>
       <div class="field">
         <%= f.label :employer %><br>
@@ -44,7 +48,7 @@
       </div>
       <div class="field">
         <%= f.label :employment_date %><br>
-        <%= f.date_select :employment_date %>
+        <%= f.date_select :employment_date, :start_year=>1955,:end_year=>2050 %>
       </div>
       <div class="field">
         <%= f.label :nationality %><br>
@@ -104,7 +108,7 @@
          
          <div class="field">
            <%= contact.label :country %><br>
-           <%= contact.number_field :country %>
+           <%= contact.text_field :country %>
          </div>
         <% end %><!-- end second form -->
   </div><!-- /column 2 -->

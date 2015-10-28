@@ -58,7 +58,7 @@ class StudentsController < ApplicationController
   def destroy
     @student.destroy
     respond_to do |format|
-      format.html { redirect_to students_url, notice: 'Student was successfully destroyed.' }
+      format.html { redirect_to students_url, notice: 'Student Successfully Unregistered.' }
       format.json { head :no_content }
     end
   end
@@ -71,6 +71,6 @@ class StudentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def student_params
-      params.require(:student).permit(:first_name, :last_name, :surname, :gender, :dob, :nationality, :adm_no, contacts_attributes: [ :id, :father, :mother, :guardian, :email, :address, :phone, :private_number, :county, :country ])
+      params.require(:student).permit(:first_name, :last_name, :surname, :image, :gender, :dob, :nationality, :boarding, :adm_no, :classroom_id, :stream_id, contacts_attributes: [ :id, :father, :image, :mother, :guardian, :email, :address, :phone, :private_number, :county, :country ])
     end
 end

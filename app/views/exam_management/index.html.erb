@@ -1,3 +1,98 @@
+<h1>Experiement Section</h1>
+<h3>A total of <%= Student.count %> Students were examined</h3>
+<table class="table table-hover table-bordered table-condensed">
+  <thead>
+    <tr>
+      <th>Adm No</th>
+      <th>Student Name</th>
+      <th>Stream</th>
+      
+      <% @subjects.each do |subject| %>
+          <th><%= truncate(subject.abbreviation, :length => 7) %></th>
+      <% end %>
+      
+      <th></th>
+      <th>Points</th>
+      <th>Prev Exam</th>
+      <th>Grade</th>
+      <th>Stream Pos</th>
+      <th>Class Pos</th>
+      <th>Pos Change</th>
+  </thead>
+
+  <tbody>
+    <% @students.each do |student| %>
+      <tr>
+        <td><%= student.adm_no %></td>
+        <td> <%= student.first_name %> <%= student.last_name %> <%= student.surname %></td>
+        <td><%= student.stream.name %></td>
+        
+      <% @subjects.each do |subject| %>
+          <td><%= subject.marks %></td>
+      <% end %>
+    <% end %>
+    
+        <td><!-- something is here --></td>
+        <td><!-- calculate points here --></td>
+        <td><!-- show previous exam here --></td>
+        <td><!-- show general grade here. calculate based on points --></td>
+        <td><!-- calculate stream position here --></td>
+        <td><!-- calculate class position here --></td>
+        <td><!-- calculate position change here. position change = position provious term minus position current term --></td>
+  </tr>
+  </tbody>
+</table>
+
+
+<table class="table table-hover table-bordered">
+    <thead>
+      <tr>
+        <th >Adm No</th>
+        <th class="sname">Student Name</th>
+        <th >Stream</th>
+        <th >English</th>
+        <th >Kiswahili</th>
+        <th >Math</th>
+        <th >Biology</th>
+        <th >Chemistry</th>
+        <th >Physics</th>
+        <th >History</th>
+        <th >Geography</th>
+        <th >Etc</th>
+        <th >Points</th>
+        <th >Prev Exam</th>
+        <th >Grade</th>
+        <th >Strm Pos</th>
+        <th >Class Pos</th>
+        <th >Pos Change</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1234</td>
+        <td>Doe John Steve</td>
+        <td>Yellow</td>
+        <td>45 C</td>
+        <td>80 A-</td>
+        <td>45 C</td>
+        <td>78 A-</td>
+        <td>45 C</td>
+        <td>55 C+</td>
+        <td>45 C</td>
+        <td>74 B+</td>
+        <td></td>
+        <td>7</td>
+        <td>0.5</td>
+        <td>B-</td>
+        <td>1/47</td>
+        <td>1</td>
+        <td>0</td>
+      </tr>
+    </tbody>
+  </table>
+<h1>Experiment Section Ends Here </h1>
+
+
 <div class="col-lg-8">
   <h3>Form <span>1</span> Term <span>2</span></h3>
   <h4>Midterm Exams</h4>

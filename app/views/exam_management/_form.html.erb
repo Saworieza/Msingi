@@ -1,0 +1,29 @@
+<%# this is a class form. nest exams and subjects in it. if you are lost see railscast #196 
+you need a model for examinations. here s why, the subjects are already there, the students same stream. yuo know that. each classroom
+gets its own exam which you create within this new model and get a classroom. so its examination > it takes in class. then uploads c students within that class and then all exams offered by the school . get it
+see design in pages
+
+%>
+
+<%= form_for(@classroom) do |f| %>
+  <% if @classroom.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@classroom.errors.count, "error") %> prohibited this classroom from being saved:</h2>
+
+      <ul>
+      <% @classroom.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :number %><br>
+    <%= f.number_field :number %>
+  </div>
+  
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

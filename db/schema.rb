@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151012114459) do
+ActiveRecord::Schema.define(version: 20151016054842) do
 
   create_table "assignments", force: :cascade do |t|
     t.string   "name"
@@ -101,13 +101,17 @@ ActiveRecord::Schema.define(version: 20151012114459) do
 
   create_table "exams", force: :cascade do |t|
     t.string   "name"
-    t.string   "attachment"
     t.date     "start_date"
     t.date     "end_date"
     t.integer  "passmark"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.integer  "year_id",    default: 1
+    t.integer  "term_id",    default: 1
   end
+
+  add_index "exams", ["term_id"], name: "index_exams_on_term_id"
+  add_index "exams", ["year_id"], name: "index_exams_on_year_id"
 
   create_table "houses", force: :cascade do |t|
     t.string   "name"
@@ -167,11 +171,16 @@ ActiveRecord::Schema.define(version: 20151012114459) do
     t.string   "gender"
     t.date     "dob"
     t.string   "nationality"
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
     t.integer  "adm_no"
-    t.integer  "classroom_id", default: 4
-    t.integer  "stream_id",    default: 5
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.integer  "classroom_id",       default: 1
+    t.integer  "stream_id",          default: 2
+    t.string   "boarding"
   end
 
   add_index "students", ["classroom_id"], name: "index_students_on_classroom_id"
@@ -203,14 +212,19 @@ ActiveRecord::Schema.define(version: 20151012114459) do
     t.string   "nationality"
     t.string   "employer_id"
     t.string   "education"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   create_table "terms", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "number"
   end
 
   create_table "users", force: :cascade do |t|
