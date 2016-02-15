@@ -1,95 +1,29 @@
-<h1>Experiement Section</h1>
-<h3>A total of <%= Student.count %> Students were examined</h3>
-<table class="table table-hover table-bordered table-condensed">
+<p id="notice"><%= notice %></p>
+<%= link_to 'Create Exam', new_exam_management_path %>
+<h4>Listing Exams </h4><!-- List exam name here -->
+
+<table>
   <thead>
     <tr>
-      <th>Adm No</th>
-      <th>Student Name</th>
-      <th>Stream</th>
-      
-      <% @subjects.each do |subject| %>
-          <th><%= truncate(subject.abbreviation, :length => 7) %></th>
-      <% end %>
-      
-      <th></th>
-      <th>Points</th>
-      <th>Prev Exam</th>
-      <th>Grade</th>
-      <th>Stream Pos</th>
-      <th>Class Pos</th>
-      <th>Pos Change</th>
+      <th colspan="3"></th>
+    </tr>
   </thead>
 
   <tbody>
-    <% @students.each do |student| %>
+    <% @exam_managements.each do |exam_management| %>
       <tr>
-        <td><%= student.adm_no %></td>
-        <td><%= student.first_name %> <%= student.last_name %> <%= student.surname %></td>
-        <td><%= student.stream.name %></td>
-        
-      <% @subjects.each do |subject| %>
-          <td><%= subject.marks %></td>
-      <% end %>
+        <td><%= link_to 'Show', exam_management %></td>
+        <td><%= link_to 'Edit', edit_exam_management_path(exam_management) %></td>
+        <td><%= link_to 'Destroy', exam_management, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
     <% end %>
-    
-        <td><!-- nothing is here --></td>
-        <td>A<!-- calculate points here --></td>
-        <td><!-- show previous exam here --></td>
-        <td><!-- show general grade here. calculate based on points --></td>
-        <td><!-- calculate stream position here --></td>
-        <td><!-- calculate class position here --></td>
-        <td><!-- calculate position change here. position change = position provious term minus position current term --></td>
-  </tr>
   </tbody>
 </table>
 
+<br>
 
-<table class="table table-hover table-bordered">
-    <thead>
-      <tr>
-        <th >Adm No</th>
-        <th class="sname">Student Name</th>
-        <th >Stream</th>
-        <th >English</th>
-        <th >Kiswahili</th>
-        <th >Math</th>
-        <th >Biology</th>
-        <th >Chemistry</th>
-        <th >Physics</th>
-        <th >History</th>
-        <th >Geography</th>
-        <th >Etc</th>
-        <th >Points</th>
-        <th >Prev Exam</th>
-        <th >Grade</th>
-        <th >Strm Pos</th>
-        <th >Class Pos</th>
-        <th >Pos Change</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>1234</td>
-        <td>Doe John Steve</td>
-        <td>Yellow</td>
-        <td>45 C</td>
-        <td>80 A-</td>
-        <td>45 C</td>
-        <td>78 A-</td>
-        <td>45 C</td>
-        <td>55 C+</td>
-        <td>45 C</td>
-        <td>74 B+</td>
-        <td></td>
-        <td>7</td>
-        <td>0.5</td>
-        <td>B-</td>
-        <td>1/47</td>
-        <td>1</td>
-        <td>0</td>
-      </tr>
-    </tbody>
-  </table>
+
+
 <h1>Experiment Section Ends Here </h1>
 
 

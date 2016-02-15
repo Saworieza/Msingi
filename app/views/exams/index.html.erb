@@ -5,7 +5,8 @@
 <table>
   <thead>
     <tr>
-      <th>Name</th>
+      <th>Term</th>
+      <th>Exam</th>
       <th>Start date</th>
       <th>End date</th>
       <th>Passmark</th>
@@ -16,6 +17,7 @@
   <tbody>
     <% @exams.each do |exam| %>
       <tr>
+        <td><%= exam.term.name %></td>
         <td><%= exam.name %></td>
         <td><%= exam.start_date %></td>
         <td><%= exam.end_date %></td>
