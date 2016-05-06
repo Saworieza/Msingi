@@ -1,11 +1,15 @@
 source 'https://rubygems.org'
-gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
+gem 'bootstrap-sass'
 gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
 gem 'devise' 
 gem 'acts_as_votable', '~> 0.10.0'
 gem 'ckeditor', github: 'galetahub/ckeditor'
 gem 'will_paginate'
 gem 'will_paginate-bootstrap'
+
+gem "therubyracer"
+gem "less-rails"
+
 #user roles
 gem 'cancancan', '~> 1.10' 
 gem 'rolify'
