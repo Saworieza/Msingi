@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151029091936) do
+ActiveRecord::Schema.define(version: 20160530135627) do
 
   create_table "assignments", force: :cascade do |t|
     t.string   "name"
@@ -186,6 +186,7 @@ ActiveRecord::Schema.define(version: 20151029091936) do
     t.integer  "classroom_id",       default: 1
     t.integer  "stream_id",          default: 2
     t.string   "boarding"
+    t.integer  "term_id"
   end
 
   add_index "students", ["classroom_id"], name: "index_students_on_classroom_id"
